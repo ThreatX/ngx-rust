@@ -1,4 +1,4 @@
-NGINX_VER = 1.13.7
+NGINX_VER = 1.14.2
 UNAME_S := $(shell uname -s)
 NGX_MODULES = --with-compat  --with-threads --with-http_addition_module \
      --with-http_auth_request_module   --with-http_gunzip_module --with-http_gzip_static_module  \
@@ -24,7 +24,7 @@ setup-nginx:
 
 nginx-source:	setup-nginx
 	rm -rf nginx/${NGINX_SRC}
-	wget http://nginx.org/download/nginx-${NGINX_VER}.tar.gz
+	curl -O http://nginx.org/download/nginx-${NGINX_VER}.tar.gz
 	tar zxf nginx-${NGINX_VER}.tar.gz
 	mv nginx-${NGINX_VER} ${NGINX_SRC}
 	mv ${NGINX_SRC} nginx
